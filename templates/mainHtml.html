@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Import Data Dashboard</title>
+  <link rel="stylesheet" href="../supportFE/styles.css">
+  
+</head>
+<body>
+
+   
+  <h1>Import Data Dashboard</h1>
+
+  <div class="search-container">
+    <input type="text" id="yearSarchBar" placeholder="year of sarch"/>
+    <input type="text" id="overAllSearchBar" placeholder="Search..." />
+    <div class="column-dropdown">
+        <span id="sarch-amount-span" >Rows amounts</span>
+        <div class="column-options">
+        <label class="clickble-option">100 </label><br>
+        <label class="clickble-option">200 </label><br>
+        <label class="clickble-option"> 500</label><br>
+        <label class="clickble-option"> 1000</label><br>
+        </div>
+    </div>
+    <!-- Hoverable column selector -->
+    <div class="column-dropdown">
+      <span>Customize Columns ▼</span>
+      <div class="column-options">
+        <label><input type="checkbox" class="column_toggle" data-col="0" checked> Year</label><br>
+        <label><input type="checkbox" class="column_toggle" data-col="1" checked> Country</label><br>
+        <label><input type="checkbox" class="column_toggle" data-col="2" checked> HS Code</label><br>
+        <label><input type="checkbox" class="column_toggle" data-col="9" checked> Value</label><br>
+        <label><input type="checkbox" class="column_toggle" data-col="4" checked> Month</label><br>
+        <label><input type="checkbox" class="column_toggle" data-col="5" checked> Quantity</label><br>
+        <label><input type="checkbox" class="column_toggle" data-col="6" checked>Measur Unit</label><br>
+        <label><input type="checkbox" class="column_toggle" data-col="7" checked> Agreement Name</label><br>
+        <label><input type="checkbox" class="column_toggle" data-col="8" checked> CustomsHouse</label><br>
+        <label><input type="checkbox" class="column_toggle" data-col="9" checked> VAT</label><br>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="data-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Country</th>
+          <th>HS Code</th>
+          <th>Value (NIS)</th>
+          <th>Month</th>
+          <th>Quantity</th>
+          <th>Measur Unit</th>
+          <th>Agreement Name</th>
+          <th>CustomsHouse</th>
+          <th>VAT</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- Data rows will go here -->
+      </tbody>
+    </table>
+  </div>
+  <script src="../supportFE/script.js"></script>
+  </body>
+  
+  </html>

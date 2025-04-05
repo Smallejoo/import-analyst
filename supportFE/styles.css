@@ -1,0 +1,102 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0fdfc;
+    margin: 0;
+    padding: 20px;
+    color: #2c3e50;
+  }
+  
+  h1 {
+    color: #00796b;
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  input[type="text"] {
+    padding: 8px;
+    border: 1px solid #b2dfdb;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #ffffff;
+  }
+  
+ 
+  /* over all hover effect  */
+  .column-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .column-dropdown span {
+    background-color: #e0f2f1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+ /* making the clicking space bigger */
+   .clickble-option { 
+    display: inline-block;  
+    min-width: 50px;
+    cursor:grabbing;
+    
+  }
+  .column-options {
+    /* min-width: 50px; */
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 8px;
+    z-index: 10;
+    border-radius: 12px;
+    
+  }
+  
+  .column-dropdown:hover .column-options {
+    display: inline-block;
+  }
+  /* over all hover effect  */
+
+
+  
+  .data-table {
+    border: 1px solid #b2dfdb;
+    border-radius: 8px;
+    overflow: auto;
+    max-height: 400px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 150, 136, 0.15);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+  }
+  
+  th {
+    background-color: #004d40;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #e0f2f1;
+  }
+  
+  tr:hover {
+    background-color: #e0f7fa;
+  }

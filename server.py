@@ -10,7 +10,9 @@ def index():
 
 @Server.route('/api/data')
 def api_data():
+    print("how req looks like  " +str(request.args))
     amount = request.args.get('amount', default=100, type=int)
+    print("amount of requested data :" +str(amount))
     data=get_data(amount)
     return jsonify(data)
 

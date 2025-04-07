@@ -14,11 +14,11 @@ def get_data(amount=100):
     print("===== new data =====")
     if records:
         headers=list(records[0].keys())
-        print(" | ".join(headers))
+        #print(" | ".join(headers))
 
         for row in records:
             row_value=[str(row.get(h,"")) for h in headers]
-            print(" | ".join(row_value))
+         #   print(" | ".join(row_value))
 
 
     return records

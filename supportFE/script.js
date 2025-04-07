@@ -1,14 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Make the month amount span update when a label is clicked
+  
+  
+  const graphs=document.querySelector(".graphs-div")
+
+document.querySelectorAll(".Gbuttons").forEach(button =>
+{
+  button.addEventListener('click', ()=>
+  {
+   const closeParent=  button.closest(".graph-block")
+   const spans=closeParent.querySelectorAll(".click-span")
+   console.log(spans);
+   const value1=spans[0].innerHTML;
+   const value2=spans[1].innerText;
+   const value3=spans[2].innerText;
+   console.log(value1);
+   console.log(value2);
+   console.log(value3);
+  });
+});
 
 
 
-    document.querySelectorAll('.clickble-option').forEach(label => {
+  graphs.querySelectorAll(".graph-block .clickble-option").forEach(label =>
+  {
+    label.addEventListener("click", ()=>{
+      const closeParent = label.closest(".column-dropdown").querySelector("span");
+     closeParent.innerText=label.innerHTML;
+
+    });
+  });
+  
+  //rows amount at top 
+    document.querySelectorAll('#drop-row-amount .clickble-option').forEach(label => {
       label.addEventListener('click', () => {
         const value = label.innerText.trim();
-        document.querySelector('#sarch-amount-span').innerText = value + " rows";
-    
-        fetch('/api/data?amount=${value}')  // ✅ fixed with backticks
+        const item=document.querySelector('#sarch-amount-span');
+        item.innerText=value +" rows";
+        item.setAttribute("rows-amount-storage",value);
+        console.log(value);
+        fetch(`/api/data?amount=${value}`)  // ✅ fixed with backticks
           .then(res => res.json())          // ✅ fixed with ()
           .then(data => {
             console.log("Received:", data);
@@ -35,6 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       });
     });
+    document.querySelectorAll('#sarch-amount-span-bott-1 .clickble-option, #sarch-amount-span-bott-2 .clickble-option ').forEach(label=>{
+      label.addEventListener('click', ()=>
+      {
+       const amount=document.querySelector("#sarch-amount-span").getAttribute("rows-amount-storage");
+
+      })
+    })
   
     // Optional: column visibility toggle logic
     document.querySelectorAll('.column_toggle').forEach(checkbox => {

@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Import Data Dashboard</title>
   <link rel="stylesheet" href="../supportFE/styles.css">
-  
+
 </head>
+
 <body>
 
-   
+
   <h1>Import Data Dashboard</h1>
 
   <div class="search-container">
-    <input type="text" id="yearSarchBar" placeholder="year of sarch"/>
+    <input type="text" id="yearSarchBar" placeholder="year of sarch" />
     <input type="text" id="overAllSearchBar" placeholder="Search..." />
-    <div class="column-dropdown">
-        <span id="sarch-amount-span" >Rows amounts</span>
-        <div class="column-options">
+    <div class="column-dropdown" id="drop-row-amount">
+      <span class="click-span" id="sarch-amount-span" rows-amount-storage="">Rows amounts</span>
+      <div class="column-options">
         <label class="clickble-option">100 </label><br>
         <label class="clickble-option">200 </label><br>
         <label class="clickble-option"> 500</label><br>
         <label class="clickble-option"> 1000</label><br>
-        </div>
+      </div>
     </div>
     <!-- Hoverable column selector -->
     <div class="column-dropdown">
@@ -30,14 +32,14 @@
         <label><input type="checkbox" class="column_toggle" data-col="0" checked> Year</label><br>
         <label><input type="checkbox" class="column_toggle" data-col="1" checked> Country</label><br>
         <label><input type="checkbox" class="column_toggle" data-col="2" checked> HS Code</label><br>
-        <label><input type="checkbox" class="column_toggle" data-col="9" checked> Value</label><br>
+        <label><input type="checkbox" class="column_toggle" data-col="3" checked> Value</label><br>
         <label><input type="checkbox" class="column_toggle" data-col="4" checked> Month</label><br>
         <label><input type="checkbox" class="column_toggle" data-col="5" checked> Quantity</label><br>
         <label><input type="checkbox" class="column_toggle" data-col="6" checked>Measur Unit</label><br>
         <label><input type="checkbox" class="column_toggle" data-col="7" checked> Agreement Name</label><br>
         <label><input type="checkbox" class="column_toggle" data-col="8" checked> CustomsHouse</label><br>
         <label><input type="checkbox" class="column_toggle" data-col="9" checked> VAT</label><br>
-        
+
       </div>
     </div>
   </div>
@@ -63,7 +65,100 @@
       </tbody>
     </table>
   </div>
-  <script src="../supportFE/script.js"></script>
-  </body>
+  <div class="graphs-div">
+    <div class="search-container">
   
-  </html>
+      <!-- Graph window 1 -->
+      <div class="graph-block" id="graph-1">
+        <div class="column-dropdown">
+          <span class="click-span" id="graph-title-1">Graph window 1</span>
+          <div class="column-options">
+            <label class="clickble-option">Bar Chart</label><br>
+            <label class="clickble-option">Pie Chart</label><br>
+            <label class="clickble-option">Column Chart</label><br>
+            <label class="clickble-option">Histogram</label><br>
+          </div>
+        </div>
+  
+  
+        <!-- Column X -->
+        <div class="column-dropdown">
+          <span class="click-span">Item 1</span>
+          <div class="column-options">
+            <label class="clickble-option">Country</label><br>
+            <label class="clickble-option">HS Code</label><br>
+            <label class="clickble-option">Value</label><br>
+            <label class="clickble-option">Quantity</label><br>
+            <label class="clickble-option">CustomsHouse</label><br>
+            
+          </div>
+        </div>
+  
+        <!-- Column Y -->
+        <div class="column-dropdown">
+          <span class="click-span">Item 2</span>
+          <div class="column-options">
+            <label class="clickble-option">Country</label><br>
+            <label class="clickble-option">HS Code</label><br>
+            <label class="clickble-option">Value</label><br>
+            <label class="clickble-option">Quantity</label><br>
+            <label class="clickble-option">CustomsHouse</label><br>
+          </div>
+        </div>
+        <button class="Gbuttons" > button graph-1</button>
+      </div>
+  
+      <!-- Graph window 2 -->
+      <div class="graph-block" id="graph-2">
+        <div class="column-dropdown">
+          <span class="click-span" id="graph-title-2">Graph window 2</span>
+          <div class="column-options">
+            <label class="clickble-option">Bar Chart</label><br>
+            <label class="clickble-option">Pie Chart</label><br>
+            <label class="clickble-option">Column Chart</label><br>
+            <label class="clickble-option">Histogram</label><br>
+          </div>
+        </div>
+  
+      
+        <!-- Column X -->
+        <div class="column-dropdown">
+          <span class="click-span">Item 1</span>
+          <div class="column-options">
+            <label class="clickble-option">Country</label><br>
+            <label class="clickble-option">HS Code</label><br>
+            <label class="clickble-option">Value</label><br>
+            <label class="clickble-option">Quantity</label><br>
+            <label class="clickble-option">CustomsHouse</label><br>
+          </div>
+        </div>
+  
+        <!-- Column Y -->
+        <div class="column-dropdown">
+          <span class="click-span">Item 2</span>
+          <div class="column-options">
+            <label class="clickble-option">Country</label><br>
+            <label class="clickble-option">HS Code</label><br>
+            <label class="clickble-option">Value</label><br>
+            <label class="clickble-option">Quantity</label><br>
+            <label class="clickble-option">CustomsHouse</label><br>
+          </div>
+        </div>
+       
+        <button class="Gbuttons" > button graph-2</button>
+         
+        </div>
+      </div>
+     
+    </div> <!-- end search-container -->
+  
+  </div> <!-- end graphs-div -->
+  
+  <div class="graphs-container">
+    <img id="GL1" class="graphs-layout" src="" alt="Graph 1">
+    <img id="GL2" class="graphs-layout" src="" alt="Graph 2">
+  </div>
+  <script src="../supportFE/script.js"></script>
+</body>
+
+</html>

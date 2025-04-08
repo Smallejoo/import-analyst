@@ -42,7 +42,7 @@ body {
  /* making the clicking space bigger */
    .clickble-option { 
     display: inline-block;  
-    min-width: 50px;
+    min-width: 100px;
     cursor:grabbing;
     
   }

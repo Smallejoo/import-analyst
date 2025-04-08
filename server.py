@@ -21,7 +21,7 @@ def api_data():
 @Server.route('/api/graph',methods=['POST'])
 def api_graph():
     data =request.get_json()
-    graph_type=data.get("graphType", "").lower()
+    graph_type=data.get("graphType", "")
     item1=data.get("item1")
     item2=data.get("item2")
     amount=data.get("item3")
@@ -31,7 +31,8 @@ def api_graph():
 
     if not item1 or (graph_type != "historgam" and not item2):
       return jsonify({"error":"missing item1"}),400
-    
+
+    print("===== graph type over here ======" +graph_type) 
     img=get_graph(graph_type,item1,item2,amount)
    
 
@@ -54,7 +55,18 @@ column_map = {
     "Purchase Tax": "PurchaseTax",
     "General Customs Tax": "GeneralCustomsTax",
     "Agreement": "TradeAgreementName",
-    "Terms of Sale": "TermsOfSale"
+    "Terms of Sale": "TermsOfSale",
+    "General Tax":"GeneralCustomsTax good",
+    "Purchase Tax":"PurchaseTax"
+}
+numerical_columns = {
+    "NISCurrencyAmount",
+    "Quantity",
+    "VAT",
+    "PurchaseTax",
+    "GeneralCustomsTax",
+    "IsPreferenceDocument",
+    "IsTradeAgreementWithQuota"
 }
 if __name__ == '__main__':
     Server.run(debug=True)

@@ -16,6 +16,34 @@ document.querySelectorAll(".Gbuttons").forEach(button =>
    console.log(value1);
    console.log(value2);
    console.log(value3);
+   const amount=document.querySelector("#sarch-amount-span").getAttribute("rows-amount-storage");
+   fetch('/api/graph',{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify({
+      graphType:value1,
+      item1:value2,
+      item2:value3,
+      item3:amount
+    })
+   })
+   .then(res=> res.blob())
+   .then(blob => {
+    const url=URL.createObjectURL(blob);
+    if(closeParent.id==="graph-1")
+    {
+      document.querySelector("#GL1").src=url;
+      console.log("iam here 1")
+    }
+    else{
+      document.querySelector("#GL2").src=url;
+      console.log("iam here 2")
+    }
+    console.log(url);
+
+   })
   });
 });
 

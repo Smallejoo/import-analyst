@@ -1,6 +1,6 @@
 
 from flask import Flask, jsonify, render_template, request ,send_file
-from suportB.dataManagment import get_data, get_graph
+from suportB.dataManagment import get_data, get_graph ,get_data_1
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -15,8 +15,14 @@ def index():
 @Server.route('/api/data')
 def api_data():
     amount = request.args.get('amount', default=100, type=int)
-    data=get_data(amount)
-    return jsonify(data)
+    if amount>= 1000:
+        data=get_data(amount)
+        return jsonify(data)
+    else:
+        data=get_data_1(amount)       
+        return jsonify(data)
+    
+
 
 @Server.route('/api/graph',methods=['POST'])
 def api_graph():

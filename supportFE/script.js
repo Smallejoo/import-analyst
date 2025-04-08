@@ -1,8 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
+  //if you want to sort any colmn with a click 
+  document.querySelectorAll("th").forEach((header, colIndex) => {
+    header.addEventListener("click", () => {
+      const rows = Array.from(document.querySelectorAll("#tableBody tr"));
   
+      rows.sort((a, b) => {
+        const cellA = a.children[colIndex].innerText.trim();
+        const cellB = b.children[colIndex].innerText.trim();
   
-  const graphs=document.querySelector(".graphs-div")
+        let valA, valB;
+  
+        if (isNaN(cellA)) {
+          valA = cellA;
+        } else {
+          valA = parseFloat(cellA);
+        }
+  
+        if (isNaN(cellB)) {
+          valB = cellB;
+        } else {
+          valB = parseFloat(cellB);
+        }
+  
+        if (valA < valB) {
+          return 1;
+        } else if (valA > valB) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+  
+      const tbody = document.querySelector("#tableBody");
+      rows.forEach(row => {
+        tbody.appendChild(row);
+      });
+    });
+  });
+  
 
+// the function will try to show only the data that you sarch for by word 
+// if the word is in any row the row will stay.
+  document.querySelector("#overAllSearchBar").addEventListener('click', () => {
+    const searchName = document.querySelector("#sarchBar").value.toLowerCase();
+  
+    document.querySelectorAll("#tableBody tr").forEach(row => {
+      const rowText = row.innerHTML.toLowerCase();
+  
+     
+      row.style.display = "none";
+  
+     
+      if (rowText.includes(searchName)) {
+        row.style.display = "";
+      }
+    });
+  });
+  
+
+  const graphs=document.querySelector(".graphs-div")
+//the button for the graphs when you finish adjusting witch graph you want 
+// you will click on this button and the graph will soon be on the window . 
 document.querySelectorAll(".Gbuttons").forEach(button =>
 {
   button.addEventListener('click', ()=>
@@ -48,7 +106,7 @@ document.querySelectorAll(".Gbuttons").forEach(button =>
 });
 
 
-
+//shows what you have clicked so you will be sure what you have picked .
   graphs.querySelectorAll(".graph-block .clickble-option").forEach(label =>
   {
     label.addEventListener("click", ()=>{
@@ -58,7 +116,7 @@ document.querySelectorAll(".Gbuttons").forEach(button =>
     });
   });
   
-  //rows amount at top 
+    //fetch command to the back end how much rows you want . 
     document.querySelectorAll('#drop-row-amount .clickble-option').forEach(label => {
       label.addEventListener('click', () => {
         const value = label.innerText.trim();
@@ -101,7 +159,7 @@ document.querySelectorAll(".Gbuttons").forEach(button =>
       })
     })
   
-    // Optional: column visibility toggle logic
+    //if you want to disable a column (toggle view )
     document.querySelectorAll('.column_toggle').forEach(checkbox => {
       checkbox.addEventListener('change', function () {
         const colIndex = this.getAttribute("data-col");

@@ -9,6 +9,30 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 
 
+def get_data_1(amount=2000):
+    url = 'https://data.gov.il/api/3/action/datastore_search'
+    resource_id = '6d3b03e1-de9c-42a8-bb08-91ba564c2f34'
+
+    all_records = []
+    limit = 1000
+
+    for offset in range(0, amount, limit):
+        params = {
+            'resource_id': resource_id,
+            'limit': min(limit, amount - offset),
+            'offset': offset
+        }
+        res = requests.get(url, params=params)
+        data = res.json()
+        records = data['result']['records']
+        all_records.extend(records)
+
+        if len(records) < limit:
+            break  # no more data
+
+    return all_records
+
+# data fetch of rows . 
 def get_data(amount=100):
     url = 'https://data.gov.il/api/3/action/datastore_search'
     params = {
@@ -30,7 +54,7 @@ def get_data(amount=100):
 
 
     return records
-
+#graph fetch logic 
 def get_graph(graph_type="bar", colx=None, coly=None, amount=100):
     data = pd.DataFrame(get_data(amount))
 
@@ -141,7 +165,7 @@ column_map = {
     "General Customs Tax": "GeneralCustomsTax",
     "Agreement": "TradeAgreementName",
     "Terms of Sale": "TermsOfSale",
-    "General Tax":"GeneralCustomsTax good",
+    "General Tax":"GeneralCustomsTax",
     "Purchase Tax":"PurchaseTax"
 }
 
